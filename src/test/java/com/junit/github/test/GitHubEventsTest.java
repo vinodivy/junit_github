@@ -36,8 +36,8 @@ public class GitHubEventsTest {
         assertThat(response, notNullValue());
         assertThat(response.jsonPath().getList("").size(), greaterThan(0));
 
-        var pushCount = response.jsonPath().getList("type").stream().filter(x -> x.equals("PushEvent")).count();
-        var createEventCount = response.jsonPath().getList("type").stream().filter(x -> x.equals("CreateEvent")).count();
+        var pushCount = response.jsonPath().getList("type").stream().filter(element -> element.equals("PushEvent")).count();
+        var createEventCount = response.jsonPath().getList("type").stream().filter(element -> element.equals("CreateEvent")).count();
 
         System.out.println("PushEvent count is: "+pushCount);
         System.out.println("CreateEvent count is: "+createEventCount);
